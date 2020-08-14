@@ -19,6 +19,17 @@ public class Test {
 //					1.2.7.1 args() 有几个参数,arg-names 里面必须有几个参数
 //					1.2.7.2 arg-names="名称" 里面名称必须和通知方法参数名对应
 		
+//		三. 配置异常通知的步骤(AspectJ 方式)
+//		1. 只有当切点报异常才能触发异常通知
+//		2. 在spring 中有AspectJ 方式提供了异常通知的办法.
+//			2.1 如果希望通过schema-base 实现需要按照特定的要求自己编写方法.
+//		3. 实现步骤:
+//			3.1 新建类,在类写任意名称的方法
+//			3.2 在spring 配置文件中配置
+//				3.2.1 <aop:aspect>的ref 属性表示:方法在哪个类中.
+//				3.2.2 <aop: xxxx/> 表示什么通知
+//				3.2.3 method: 当触发这个通知时,调用哪个方法
+//				3.2.4 throwing: 异常对象名,必须和通知中方法参数名相同(可以不在通知中声明异常对象)
 		ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
 		Demo demo = ac.getBean("demo",Demo.class);
 		try {
