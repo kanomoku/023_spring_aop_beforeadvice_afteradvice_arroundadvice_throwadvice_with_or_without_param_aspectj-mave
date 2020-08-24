@@ -1,14 +1,17 @@
 package com.advice;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 
 /**
  *
  */
 public class MyAdvice{
-	public void mybefore(String name,int age) {
+	public void mybefore(JoinPoint joinPoint,String name,int age) {
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~前置1");
 		System.out.println("前置1"+name+age);
+		System.out.println("前置1  目标类："+joinPoint.getTarget());
+		System.out.println("前置1 织入增强类的目标方法："+joinPoint.getSignature().getName());
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~前置1");
 	}
 	public void mybefore1(String name) {
