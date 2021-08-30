@@ -21,11 +21,14 @@ http://www.springframework.org/schema/aop/spring-aop.xsd">
 			
 			<aop:before method="mybefore" pointcut-ref="mypoint1" arg-names="name111,age111"/>
 			<aop:before method="mybefore1" pointcut-ref="mypoint2" arg-names="name11"/>
+			
 			<!-- 不管是否出异常都会走 -->
 			<aop:after method="myafter1" pointcut-ref="mypoint3" arg-names="name12"/>
 			<!-- 如果出异常就不走了 -->
 			<aop:after-returning method="myafter2" pointcut-ref="mypoint4" arg-names="name13"/>
+			
 			<aop:around method="myarround" pointcut-ref="mypoint5"/>
+			
 			<aop:after-throwing method="myexception" pointcut-ref="mypoint6" throwing="e1"/>
 		</aop:aspect>
 	</aop:config>
